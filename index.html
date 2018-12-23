@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script type="text/javascript">
+makeGrid = (rows, cols) => {
+  let x = new Array(rows);
+
+  for (var i = 0; i < x.length; i++) {
+    x[i] = [1,2,3,4,5];
+  }
+  return x;
+};
+
+bClick = (event) => { alert(event); };
+
+	document.addEventListener("DOMContentLoaded", function(event) {
+	    let g = document.getElementById('clickGrid');
+	    let myGrid = makeGrid(3,5);
+	    let myTableOpen ='<table border=2>'
+	    let myTableClose='</table>';
+            let myTableRows='';
+            for (let rc=0; rc < myGrid.length; rc++) {
+	      let myRow='<tr>';
+	      for (let cc=0; cc < myGrid[rc].length; cc++) {
+		 let cellId=`${rc}-${cc}`;
+		 let buttonId=`button${cellId}`;
+	         myRow = myRow + `<td id=${cellId}><button 
+		      id=${buttonId}>${cellId}</button></td>`;
+	      }
+	      myRow = myRow + '</tr>\n';
+	      myTableRows = myTableRows + myRow;
+	    }
+	    g.innerHTML=myTableOpen+myTableRows+myTableClose;
+
+		 document.getElementById("button1-1").addEventListener('click',function ()
+    {
+     alert("hello button 1-1");
+     //validation code to see State field is mandatory.
+    }  );
+
+         });
+	</script>
+</head>
+	<body>
+		<div id="clickGrid"/>
+	</body>
+</html>
