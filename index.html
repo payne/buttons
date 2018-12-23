@@ -35,7 +35,9 @@ bClick = (event) => { alert(event); };
 		 let cellId=`${rc}-${cc}`;
 		 let buttonId=`button${cellId}`;
 		 document.getElementById(buttonId).addEventListener('click',function () {
-		      alert("hello button "+buttonId);
+		      let b = document.getElementById(buttonId);
+		      b.setAttribute("style", "background-color: red;");
+		      //alert("hello button "+buttonId);
 		      //validation code to see State field is mandatory.
 		    });
               }
