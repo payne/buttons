@@ -30,13 +30,16 @@ bClick = (event) => { alert(event); };
 	      myTableRows = myTableRows + myRow;
 	    }
 	    g.innerHTML=myTableOpen+myTableRows+myTableClose;
-
-		 document.getElementById("button1-1").addEventListener('click',function ()
-    {
-     alert("hello button 1-1");
-     //validation code to see State field is mandatory.
-    }  );
-
+            for (let rc=0; rc < myGrid.length; rc++) {
+	      for (let cc=0; cc < myGrid[rc].length; cc++) {
+		 let cellId=`${rc}-${cc}`;
+		 let buttonId=`button${cellId}`;
+		 document.getElementById(buttonId).addEventListener('click',function () {
+		      alert("hello button "+buttonId);
+		      //validation code to see State field is mandatory.
+		    });
+              }
+            }
          });
 	</script>
 </head>
